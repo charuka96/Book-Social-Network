@@ -1,5 +1,6 @@
 package com.example.book_network.user;
 
+import com.example.book_network.role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,10 @@ private String email;
 private String password;
 private boolean accountLocked;
 private boolean enabled;
+@ManyToMany(fetch = FetchType.EAGER)
+private List<Role>roles;
+
+
 @CreatedDate
 @Column(nullable = false ,updatable = false)
 private LocalDateTime createdDate;
